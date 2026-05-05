@@ -3,7 +3,18 @@ services:
     name: mongodb
     env: docker
     autoDeploy: false
+
+    dockerfilePath: ./Dockerfile
+
     disk:
       name: data
       mountPath: /data/db
       sizeGB: 10
+
+    envVars:
+      - key: MONGO_INITDB_ROOT_USERNAME
+        value: root
+      - key: MONGO_INITDB_ROOT_PASSWORD
+        value: StrongMongoPass123!
+
+    healthCheckPath: /
